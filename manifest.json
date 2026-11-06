@@ -1,0 +1,9 @@
+{
+  "name": "Fiche Prospect 3D",
+  "short_name": "Prospect 3D",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1b5e20",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

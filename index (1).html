@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiche Prospect 3D</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1b5e20">
+<style>
+body{font-family:sans-serif;margin:0;background:#f4f6f4;color:#222}
+header{background:#1b5e20;color:#fff;padding:14px;font-size:20px;position:sticky;top:0;z-index:2}
+main{padding:12px;padding-bottom:110px}
+fieldset{background:#fff;border:1px solid #ccc;border-radius:10px;margin-bottom:14px}
+legend{font-weight:bold;color:#1b5e20}
+label{display:block;margin:8px 0 4px}
+input[type=text],input[type=tel],input[type=email],input[type=date],input[type=number],textarea{width:100%;box-sizing:border-box;padding:10px;font-size:16px;border:1px solid #bbb;border-radius:8px}
+textarea{min-height:70px}
+.cases label{display:inline-block;margin:6px 12px 6px 0;font-size:16px}
+.cases input{transform:scale(1.4);margin-right:6px}
+#barre{position:fixed;bottom:0;left:0;right:0;display:flex;gap:8px;padding:10px;background:#fff;box-shadow:0 -2px 6px #0003}
+#barre button{flex:1;padding:16px;font-size:17px;border:0;border-radius:10px;color:#fff}
+#micro{background:#c62828}
+#micro.actif{background:#2e7d32}
+#fin{background:#1565c0}
+#transcription{background:#fffde7;min-height:160px}
+#etat{font-size:14px;color:#555}
+</style>
+</head>
+<body>
+<header>Fiche Prospect 3D</header>
+<main>
+<fieldset><legend>Réglages</legend>
+<label>Mon adresse mail (reçoit le récapitulatif)</label><input type="email" id="monMail">
+</fieldset>
+
+<fieldset><legend>Client</legend>
+<label>Désignation du client</label><input type="text" id="client">
+<label>Secteur d'activité</label><input type="text" id="secteur">
+<label>Contact sur place (nom, fonction)</label><input type="text" id="contact">
+<label>Téléphone</label><input type="tel" id="tel">
+<label>Mail du contact</label><input type="email" id="mailContact">
+<label>Adresse de facturation</label><textarea id="factu"></textarea>
+<label>Adresse d'intervention</label><textarea id="interv"></textarea>
+<label>Notes libres</label><textarea id="notesClient"></textarea>
+</fieldset>
+
+<fieldset><legend>Diagnostic</legend>
+<label>Nuisibles concernés</label><div class="cases" id="nuisibles"></div>
+<label>Niveau d'infestation</label><div class="cases" id="niveau"></div>
+<label>Indices observés</label><textarea id="indices"></textarea>
+<label>Points d'entrée / calfeutrage</label><textarea id="entrees"></textarea>
+</fieldset>
+
+<fieldset><legend>Zones contractuelles</legend>
+<div class="cases" id="zones"></div>
+<label>Autres zones / précisions</label><textarea id="zonesAutres"></textarea>
+</fieldset>
+
+<fieldset><legend>Préconisation</legend>
+<label>Nombre de passages par an</label><input type="number" id="passages" min="0">
+<label>Type de contrat</label><div class="cases" id="contrat"></div>
+<label>Dispositifs</label><textarea id="dispositifs"></textarea>
+<label>Prix proposé (€ HT)</label><input type="text" id="prix">
+<label>Exigences réglementaires (HACCP...)</label><textarea id="reglement"></textarea>
+</fieldset>
+
+<fieldset><legend>Accès et contraintes du site</legend>
+<label>Horaires, fermetures, codes, clés</label><textarea id="acces"></textarea>
+<label>Contraintes (denrées, enfants, animaux...)</label><textarea id="contraintes"></textarea>
+<label>Prestataire actuel, fin de contrat, prix</label><textarea id="concurrent"></textarea>
+</fieldset>
+
+<fieldset><legend>Suivi</legend>
+<label>Date de visite</label><input type="date" id="dateVisite">
+<label>Date de relance</label><input type="date" id="dateRelance">
+<label>Remarques</label><textarea id="remarques"></textarea>
+</fieldset>
+
+<fieldset><legend>Transcription de la conversation</legend>
+<div id="etat">Micro arrêté</div>
+<textarea id="transcription"></textarea>
+</fieldset>
+<button onclick="nouvelle()" style="width:100%;padding:14px;font-size:16px">Nouvelle fiche (efface tout)</button>
+</main>
+<div id="barre">
+<button id="micro" onclick="basculerMicro()">Démarrer micro</button>
+<button id="fin" onclick="terminer()">Terminé</button>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
